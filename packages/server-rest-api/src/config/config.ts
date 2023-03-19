@@ -1,18 +1,19 @@
 import { Property, Config, TSConvict } from 'ts-convict';
+import * as yaml from 'js-yaml';
 
 @Config({
 
   // optional default file to load, no errors if it doesn't exist
-  // file: 'config.yml',// relative to NODE_PATH or cwd()
+  file: '../../config.yml',// relative to NODE_PATH or cwd()
 
   // optional parameter. Defaults to 'strict', can also be 'warn'
   validationMethod: 'strict',
 
   // optionally add parsers like yaml or toml
-  // parser: { 
-  //     extension: ['yml', 'yaml'], 
-  //     parse: yaml.safeLoad
-  // },
+  parser: { 
+      extension: ['yaml', 'yml'], 
+      parse: yaml.load
+  },
 
   //optional extra formats to use in validation
   // formats: {

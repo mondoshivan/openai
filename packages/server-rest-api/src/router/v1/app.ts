@@ -6,13 +6,15 @@ import config from "../../config/config.js";
 
 type OpenAIErrorResponse = Error & {
   response: {
-    status: string | number,
+    status: unknown,
     data: unknown
   }
 }
 
+const key = config.openAIKey;
+
 const configuration = new Configuration({
-  apiKey: config.openAIKey,
+  apiKey: key,
 });
 
 const openai = new OpenAIApi(configuration);

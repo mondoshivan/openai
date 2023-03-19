@@ -5,3 +5,4 @@ type-coverage
 coverage
 false
 **/*/tsconfig.ref.tsbuildinfo
+config.yml
