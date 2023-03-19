@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler"
 import { Request, Response, Router } from "express";
 import { Configuration, OpenAIApi } from "openai";
 import log from '@mondoshivan-openai/log';
+import config from "../../config/config.js";
 
 type OpenAIErrorResponse = Error & {
   response: {
@@ -11,7 +12,7 @@ type OpenAIErrorResponse = Error & {
 }
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: config.openAIKey,
 });
 
 const openai = new OpenAIApi(configuration);

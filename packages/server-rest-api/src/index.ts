@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import log from '@mondoshivan-openai/log';
 import { App } from "./app.js";
 import routers from "./router/v1/index.js";
