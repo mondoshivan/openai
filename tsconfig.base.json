@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "composite": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "module": "NodeNext",
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "removeComments": true,
+    "moduleResolution": "nodenext",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@mondoshivan-openai/root",
+  "version": "0.0.1",
+  "description": "NodeJS Project with OpenAI Integration",
+  "main": "index.js",
+  "scripts": {
+    "build-tsc": "npx tsc --build",
+    "lerna-bootstrap": "npx lerna bootstrap",
+    "lerna-clean": "npx lerna clean --yes",
+    "lint": "npx eslint . --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mondoshivan",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "lerna": "^6.5.1",
+    "typescript": "^5.0.2"
+  }
+}

@@ -1,0 +1,7 @@
+packages/*/dist
+node_modules
+lerna-debug.log
+type-coverage
+coverage
+false
+**/*/tsconfig.ref.tsbuildinfo
