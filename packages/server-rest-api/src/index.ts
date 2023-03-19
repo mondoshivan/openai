@@ -12,7 +12,7 @@ const start = async () => {
   try {
       const app = get();
       app.listen();
-  } catch (error: any) {
+  } catch (error) {
       log.error(error);
   }
 };
