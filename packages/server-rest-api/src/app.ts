@@ -1,4 +1,4 @@
-import express, { Express, Router, Request, Response } from 'express';
+import express, { Express, Router, Request, Response, NextFunction } from 'express';
 import log from '@mondoshivan-openai/log';
  
 export class App {
@@ -20,7 +20,8 @@ export class App {
     this.app.use(express.urlencoded({ extended: true }));
     // this.app.use(express.static(path.join(process.cwd(), config.service.frontEndDir)));
 
-    this.app.use((err:Error, req:Request, res:Response) => {
+    // Note: keep next param, otherwise the middleware is not called in case of error.
+    this.app.use((err:Error, req:Request, res:Response, next: NextFunction) => {
       log.error(err);
       res.status(500).send('Internal Server Error!');
     });

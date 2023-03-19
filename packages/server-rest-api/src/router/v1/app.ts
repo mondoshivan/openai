@@ -11,27 +11,35 @@ type OpenAIErrorResponse = Error & {
   }
 }
 
-const key = config.openAIKey;
-
 const configuration = new Configuration({
-  apiKey: key,
+  apiKey: config.openAIKey,
 });
 
 const openai = new OpenAIApi(configuration);
 
 const appRouter = Router();
 
-appRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
+appRouter.post('/', asyncHandler(async (req: Request, res: Response) => {
+
+  if (!req.body.prompt) {
+    res.status(400).json({ error: 'no prompt given'});
+    return;
+  }
 
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: "Hello world",
+      prompt: req.body.prompt,
     });
 
     log.debug(completion);
 
-    res.status(200).json(completion.data.choices[0].text);
+    if (completion.status === 200) {
+      res.status(200).json(completion.data.choices[0].text);
+    } else {
+      res.status(400).json({ statusText: completion.statusText});
+    }
+
   } catch (error) {
 
     const errorResponse = error as OpenAIErrorResponse;
