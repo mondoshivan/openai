@@ -16,8 +16,6 @@ appRouter.post('/', asyncHandler(async (req: Request, res: Response) => {
   const context = '';
   const text = openAI.query(req.body.prompt, context);
 
-  log.debug(`openAI query: ${text}`);
-
   res.status(200).json(text);
 }));
 
